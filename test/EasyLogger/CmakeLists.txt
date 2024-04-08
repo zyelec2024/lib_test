@@ -1,0 +1,10 @@
+file(GLOB_RECURSE EasyLogger_test_file ${CMAKE_CURRENT_SOURCE_DIR}/*.c)
+
+add_library(EasyLogger_test ${EasyLogger_test_file})
+
+target_link_libraries(EasyLogger_test PRIVATE EasyLogger)
+
+target_include_directories(EasyLogger_test
+        PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
+        INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
+        )

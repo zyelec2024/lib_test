@@ -13,6 +13,7 @@
 #include <windows.h>
 
 #include "selftest.h"
+#include "EasyLogger_test.h"
 
 /*********************
  *      DEFINES
@@ -39,5 +40,6 @@
  **********************/
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int nCmdShow)
 {
-    selftest();
+    // selftest();
+    EasyLogger_test();
 }
