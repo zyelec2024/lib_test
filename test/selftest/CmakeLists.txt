@@ -1,0 +1,8 @@
+file(GLOB_RECURSE selftest_file ${CMAKE_CURRENT_SOURCE_DIR}/*.c)
+
+add_library(selftest ${selftest_file})
+
+target_include_directories(selftest
+        PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
+        INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
+        )
