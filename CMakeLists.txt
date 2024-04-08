@@ -21,9 +21,6 @@ list(APPEND EXTRA_LIBS selftest)
 add_subdirectory(test/EasyLogger)
 list(APPEND EXTRA_LIBS EasyLogger_test)
 
-add_subdirectory(components/EasyLogger)
-list(APPEND EXTRA_LIBS EasyLogger)
-
 # 添加可执行文件 exe
 add_executable(lib_test main/main.c)
 
