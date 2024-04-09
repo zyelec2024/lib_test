@@ -3,6 +3,10 @@ file(GLOB_RECURSE FlashDB_file ${CMAKE_CURRENT_SOURCE_DIR}/*.c)
 add_library(FlashDB_test ${FlashDB_file})
 
 target_include_directories(FlashDB_test
-        PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/inc
+        PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
+                ${CMAKE_CURRENT_SOURCE_DIR}/inc
+                ${CMAKE_CURRENT_SOURCE_DIR}/port/fal/samples/porting
+                ${CMAKE_CURRENT_SOURCE_DIR}/port/fal/inc
+
         INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
         )

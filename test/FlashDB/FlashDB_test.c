@@ -55,7 +55,6 @@ void FlashDB_test(void)
         /* set the lock and unlock function if you want */
         fdb_kvdb_control(&kvdb, FDB_KVDB_CTRL_SET_LOCK, (void *)lock);
         fdb_kvdb_control(&kvdb, FDB_KVDB_CTRL_SET_UNLOCK, (void *)unlock);
-        printf("f1\n");
         /* Key-Value database initialization
          *
          *       &kvdb: database object
@@ -65,16 +64,16 @@ void FlashDB_test(void)
          * &default_kv: The default KV nodes. It will auto add to KVDB when first initialize successfully.
          *        NULL: The user data if you need, now is empty.
          */
-        result = fdb_kvdb_init(&kvdb, "env", "fdb_kvdb1", &default_kv, NULL);
-        printf("f2\n");
+        result = fdb_kvdb_init(&kvdb, "env", "kv", &default_kv, NULL);
+
         if (result != FDB_NO_ERR) {
-            return -1;
+            return;
         }
 
         /* run basic KV samples */
-        kvdb_basic_sample(&kvdb);printf("f3\n");
+        kvdb_basic_sample(&kvdb);
         /* run string KV samples */
-        kvdb_type_string_sample(&kvdb);printf("f4\n");
+        kvdb_type_string_sample(&kvdb);
         /* run blob KV samples */
         kvdb_type_blob_sample(&kvdb);
     }
@@ -95,12 +94,12 @@ void FlashDB_test(void)
          *         128: maximum length of each log
          *        NULL: The user data if you need, now is empty.
          */
-        result = fdb_tsdb_init(&tsdb, "log", "fdb_tsdb1", get_time, 128, NULL);
+        result = fdb_tsdb_init(&tsdb, "log", "ts", get_time, 128, NULL);
         /* read last saved time for simulated timestamp */
         fdb_tsdb_control(&tsdb, FDB_TSDB_CTRL_GET_LAST_TIME, &counts);
 
         if (result != FDB_NO_ERR) {
-            return -1;
+            return;
         }
 
         /* run TSDB sample */

@@ -24,9 +24,9 @@
 
 #define FDB_LOG_TAG ""
 
-// #if !defined(FDB_USING_FAL_MODE) && !defined(FDB_USING_FILE_MODE)
-// #error "Please defined the FDB_USING_FAL_MODE or FDB_USING_FILE_MODE macro"
-// #endif
+#if !defined(FDB_USING_FAL_MODE) && !defined(FDB_USING_FILE_MODE)
+#error "Please defined the FDB_USING_FAL_MODE or FDB_USING_FILE_MODE macro"
+#endif
 
 fdb_err_t _fdb_init_ex(fdb_db_t db, const char *name, const char *path, fdb_db_type type, void *user_data)
 {
@@ -82,9 +82,6 @@ fdb_err_t _fdb_init_ex(fdb_db_t db, const char *name, const char *path, fdb_db_t
         db->max_size = db->storage.part->len;
 #endif /* FDB_USING_FAL_MODE */
     }
-
-    db->sec_size = 512;
-    db->max_size = 8*1024;
 
     /* the block size MUST to be the Nth power of 2 */
     FDB_ASSERT((db->sec_size & (db->sec_size - 1)) == 0);
