@@ -14,6 +14,7 @@
 
 #include "selftest.h"
 #include "EasyLogger_test.h"
+#include "FlashDB_test.h"
 
 /*********************
  *      DEFINES
@@ -41,5 +42,7 @@
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int nCmdShow)
 {
     // selftest();
-    EasyLogger_test();
+    // EasyLogger_test();
+    FlashDB_test();
+    FlashDB_test();
 }

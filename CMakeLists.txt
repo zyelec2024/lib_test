@@ -21,6 +21,9 @@ list(APPEND EXTRA_LIBS selftest)
 add_subdirectory(test/EasyLogger)
 list(APPEND EXTRA_LIBS EasyLogger_test)
 
+add_subdirectory(test/FlashDB)
+list(APPEND EXTRA_LIBS FlashDB_test)
+
 # 添加可执行文件 exe
 add_executable(lib_test main/main.c)
 
